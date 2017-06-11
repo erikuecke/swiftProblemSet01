@@ -18,12 +18,15 @@ for string in array {
     
     // Conditional checking to see if each string in the array can be an Int type and hold a value if converted
     if Int(string) != nil {
+        
         // Force unwrapping the string value to an Int type constant
         let intToAdd = Int(string)!
+        
         // Adding the int value of the string to the sum
         sum += intToAdd
     }
 }
+
 // print the sum of the strings that were numbers in the array.
 print(sum)
 

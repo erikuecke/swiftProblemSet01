@@ -16,11 +16,11 @@ emojiLove(s1: "cats", s2: "dogs")
 //: The function `median` should take three `Int` parameters and return the `Int` value in the middle.
 func median(num1: Int, num2: Int, num3: Int) -> Int {
 
-    let medianNumbers = [num1, num2, num3]
-    let sortedNumbers = medianNumbers.sorted()
-    return sortedNumbers[1]
+    
+    return [num1, num2, num3].sorted()[1]
 }
 
+median(num1: 5, num2: 10, num3: 12)
 /* Example Function Call
  
  median(num1: 1, num2: 5, num3: 6) // 5
@@ -44,13 +44,17 @@ func median(num1: Int, num2: Int, num3: Int) -> Int {
  **Note**: It is assumed that the input string is given in English.
  */
 func beginsWithVowel(word: String) -> Bool {
-    let firstLetter = String(word.lowercased().characters[word.startIndex])
-    let vowelArray = ["a", "e", "i", "o", "u"]
-    
-    if word == "" || vowelArray.contains(firstLetter)  {
+    if word == "" {
         return false
     } else {
-        return true
+        let firstLetter = String(word.lowercased().characters[word.startIndex])
+        let vowelArray = ["a", "e", "i", "o", "u"]
+        
+        if vowelArray.contains(firstLetter)  {
+            return false
+        } else {
+            return true
+        }
     }
 }
 beginsWithVowel(word: "Adam")
@@ -61,10 +65,9 @@ beginsWithVowel(word: "Adam")
  beginsWithVowel("pIG") // false
  beginsWithVowel("oink") // true
  beginsWithVowel("udacity") // true
- beginsWithVowel("") // false
- 
- */
 
+ */
+beginsWithVowel(word: "")
 /*:
  ### Exercise 17
  
@@ -76,34 +79,25 @@ beginsWithVowel(word: "Adam")
  
  **Hint**: Re-use the `beginsWithVowel` function.
  */
-func funWithWords(newWord: String) -> String {
-    let newFirstLetter = String(newWord.lowercased().characters[newWord.startIndex])
-    let vowelArray = ["a", "e", "i", "o", "u"]
+func funWithWords(_ newWord: String) -> String {
+    let newWordBool = beginsWithVowel(word: newWord)
     
-    
-        if vowelArray.contains(newFirstLetter) {
-            return newWord.lowercased()
-        } else if newWord != "" {
-            return newWord.uppercased()
-        } else {
-            return "Entry must contain text"
+    if newWordBool {
+        return newWord.lowercased()
+    } else {
+        return newWord.uppercased()
     }
-    
-    
-    
 }
 
-funWithWords(newWord: "Apples")
+// Example Function Call
+ 
+ funWithWords("Apples")  // "APPLES"
+ funWithWords("pIG")  // "pig"
+ funWithWords("oink")  //"OINK"
+ funWithWords("udacity")  //"UDACITY"
+ funWithWords("")  //""
+ 
 
-/* Example Function Call
- 
- funWithWords("Apples") // "APPLES"
- funWithWords("pIG") // "pig"
- funWithWords("oink") // "OINK"
- funWithWords("udacity") // "UDACITY"
- funWithWords("") // ""
- 
- */
 /*:
  ****
  [Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
